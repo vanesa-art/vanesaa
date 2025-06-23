@@ -1,0 +1,140 @@
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem PSFU AUTO2000 SUKUN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .card {
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="loginCard">
+        <h5 class="text-center">Sistem PSFU AUTO2000 SUKUN</h5>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="email" class="form-control" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">Login</button>
+        </form>
+    </div>
+
+    <div class="card hidden" id="mainCard">
+        <h5 class="text-center">Pilihan</h5>
+        <button class="btn btn-primary btn-block" id="inputData">Masuk sebagai Pengisi Hasil PSFU</button>
+        <button class="btn btn-secondary btn-block" id="viewData">Lihat Data Hasil PSFU</button>
+    </div>
+
+    <div class="card hidden" id="formCard">
+        <h5 class="text-center">Form Pengisian Data PSFU</h5>
+        <form id="psfuForm">
+            <div class="form-group">
+                <label for="customerName">Nama Customer</label>
+                <input type="text" class="form-control" id="customerName" required>
+            </div>
+            <div class="form-group">
+                <label for="customerPhone">No HP Customer</label>
+                <input type="tel" class="form-control" id="customerPhone" required>
+            </div>
+            <div class="form-group">
+                <label for="nopol">Nopol</label>
+                <input type="text" class="form-control" id="nopol" required>
+            </div>
+            <div class="form-group">
+                <label for="carType">Tipe Mobil</label>
+                <select class="form-control" id="carType" required>
+                    <option value="Avanza">Avanza</option>
+                    <option value="Hilux">Hilux</option>
+                    <option value="Fortuner">Fortuner</option>
+                    <option value="Yaris">Yaris</option>
+                    <option value="Camry">Camry</option>
+                    <option value="Corolla">Corolla</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lastServiceDate">Tanggal Terakhir Service</label>
+                <input type="date" class="form-control" id="lastServiceDate" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Nilai (1-10)</label>
+                <input type="number" class="form-control" id="rating" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Penjabaran</label>
+                <textarea class="form-control" id="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="serviceAdvisor">Pilih Service Advisor</label>
+                <select class="form-control" id="serviceAdvisor" required>
+                    <option value="Eko M aries">Eko M aries</option>
+                    <option value="Merza ghoelam machmud">Merza ghoelam machmud</option>
+                    <option value="Fendi indra kristiawan">Fendi indra kristiawan</option>
+                    <option value="Wardjito">Wardjito</option>
+                    <option value="Ahmad fiqih">Ahmad fiqih</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Pilih Jenis Service</label>
+                <div>
+                    <label><input type="radio" name="serviceType" value="Bengkel" required>Bengkel</label>
+                    <label><input type="radio" name="serviceType" value="Body Repaint">Body Repaint</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Kirim Hasil Penilaian</button>
+        </form>
+    </div>
+
+    <script>
+        const loginCard = document.getElementById('loginCard');
+        const mainCard = document.getElementById('mainCard');
+        const formCard = document.getElementById('formCard');
+
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            // Add authentication logic here
+            loginCard.classList.add('hidden');
+            mainCard.classList.remove('hidden');
+        }
+
+        document.getElementById('inputData').onclick = function() {
+            mainCard.classList.add('hidden');
+            formCard.classList.remove('hidden');
+        }
+
+        document.getElementById('psfuForm').onsubmit = function(e) {
+            e.preventDefault();
+            // Process form submission here
+            alert("Data berhasil disimpan!");
+            // Reset form logic if needed
+            formCard.classList.add('hidden');
+            mainCard.classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
+```
+
